@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>The Price is Right</title>
+    <link href="PrizeIsRight.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Welcome to the Price is Right</h1>
+    <p>Please select a Door Number from 1 to 4 and click submit to see your prize: </p>
+
+    <input type="radio" name="prize" value="door 1" />Door 1
+    <br />
+    <input type="radio" name="prize" value="door 2" />Door 2
+    <br />
+    <input type="radio" name="prize" value="door 3" />Door 3
+    <br />
+    <input type="radio" name="prize" value="door 4" />Door 4
+    <br />
+
+    <button type="submit" onclick="reward()">Submit</button>
+    <button type="reset" onclick="reset()">Reset</button>
+    <br />
+
+    <textarea name="display" cols="57" rows="4"></textarea>
+
+    <script src="PrizeIsRight.js"></script>
+</body>
+</html>
