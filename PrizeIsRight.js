@@ -36,13 +36,23 @@ function reward() {
 
 function reset() {
 
-    for (i = 0; i < prizes.length; i++) {
+    for (var i = 0; i < prizes.length; i++) {
 
-        if (prizes[i].checked || showPrize[i].value) {
+        if (prizes[i].checked) {
             prizes[i].checked = false;
-            showPrize[i].value = "";
         }
     }
+
+    for (i = 0; i < showPrize.length; i++) {
+
+        if (showPrize[i].value) {
+            showPrize[i].value = "";
+        } else {
+            showPrize[0].innerHTML = "Please make a selection and click submit";
+        }
+    }
+
+
 }
 
 
