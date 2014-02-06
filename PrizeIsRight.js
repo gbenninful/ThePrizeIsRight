@@ -28,7 +28,10 @@ function reward() {
 
                 showPrize[0].value = "Sorry I did not understand your selection";
             }
+        } else {
+            showPrize[0].innerHTML = "Please make a selection and click submit";
         }
+
     }
 
 }
@@ -40,7 +43,7 @@ function reset() {
 
         if (prizes[i].checked) {
             prizes[i].checked = false;
-        }
+        } 
     }
 
     for (i = 0; i < showPrize.length; i++) {
@@ -52,7 +55,7 @@ function reset() {
         }
     }
 
-
 }
 
-
+//Note: If reset or save btn is clicked no input msg shows("Please make a selection and click submit") in textarea. 
+//Above msg shows if browser is refreshed and same action is carried out
