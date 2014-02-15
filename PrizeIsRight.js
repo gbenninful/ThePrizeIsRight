@@ -1,67 +1,80 @@
-﻿"use strict";
+﻿(function () {
 
-//Program doesn't run when I try to avoid polluting Global Namespace
+    "use strict";
 
-        var prizes = document.getElementsByName("prize");
-        var showPrize = document.getElementsByName("display");
+    var prizes = document.getElementsByName("prize");
+    var showPrize = document.getElementsByName("display");
 
-    function reward() {
+    var reward = function () {
 
-        for (var i = 0; i < prizes.length; i++) {
+        document.getElementById("submitBtn").onclick = function () {
 
-            if (prizes[i].checked) {
-                var selectedPrize = prizes[i].value;
+            for (var i = 0; i < prizes.length; i++) {
 
-                if (selectedPrize === "door 1") {
+                if (prizes[i].checked) {
+                    var selectedPrize = prizes[i].value;
 
-                    showPrize[0].value = "You won a CAR";      //Alternate approach: showPrize[0].innerHTML = "You won a CAR";
+                    if (selectedPrize === "door 1") {
 
-                } else if (selectedPrize === "door 2") {
+                        showPrize[0].value = "You won a CAR";      //Alternate approach: showPrize[0].innerHTML = "You won a CAR";
 
-                    showPrize[0].value = "You won a CAT";
+                    } else if (selectedPrize === "door 2") {
 
-                } else if (selectedPrize === "door 3") {
+                        showPrize[0].value = "You won a CAT";
 
-                    showPrize[0].value = "Sorry you won NOTHING, Thanks for playing, Goodbye!";
+                    } else if (selectedPrize === "door 3") {
 
-                } else if (selectedPrize === "door 4") {
+                        showPrize[0].value = "Sorry you won NOTHING, Thanks for playing, Goodbye!";
 
-                    showPrize[0].value = "You won a BOAT";
+                    } else if (selectedPrize === "door 4") {
 
+                        showPrize[0].value = "You won a BOAT";
+
+                    } else {
+
+                        showPrize[0].value = "Sorry I did not understand your selection";
+                    }
                 } else {
-
-                    showPrize[0].value = "Sorry I did not understand your selection";
+                    showPrize[0].innerHTML = "Please make a selection and click submit";
                 }
-            } else {
-                showPrize[0].innerHTML = "Please make a selection and click submit";
+
             }
 
-        }
+        };
+    };
 
-    }
+    var reset = function () {
 
+        document.getElementById("resetBtn").onclick = function () {
+            for (var i = 0; i < prizes.length; i++) {
 
-    function reset() {
-
-        for (var i = 0; i < prizes.length; i++) {
-
-            if (prizes[i].checked) {
-                prizes[i].checked = false;
+                if (prizes[i].checked) {
+                    prizes[i].checked = false;
+                }
             }
-        }
 
-        for (i = 0; i < showPrize.length; i++) {
+            for (i = 0; i < showPrize.length; i++) {
 
-            if (showPrize[i].value) {
-                showPrize[i].value = "";
-            } else {
-                showPrize[0].innerHTML = "Please make a selection and click submit";
+                if (showPrize[i].value) {
+                    showPrize[i].value = "";
+                } else {
+                    showPrize[0].innerHTML = "Please make a selection and click submit";
+                }
             }
-        }
+        };
+    };
 
-    }
 
-    //Note: If reset or save btn is clicked no input msg shows("Please make a selection and click submit") in textarea. 
-    //Above msg shows if browser is refreshed and same action is carried out
-//})();
+    window.onload = function () {
+
+        reward();
+        reset();
+
+    };
+
+
+}());
+
+
+
 
